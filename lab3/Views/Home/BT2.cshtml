@@ -1,0 +1,162 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>BT2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .form-container {
+            border: 1px solid #333;
+            padding: 20px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
+        }
+
+        label {
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+            input[type="text"]:focus {
+                border-color: #66afea;
+                box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+            }
+
+        .error-msg {
+            color: red;
+            font-size: 12px;
+            margin-top: 3px;
+            min-height: 15px;
+        }
+
+        .btn-group {
+            margin-top: 5px;
+        }
+
+        .btn {
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-right: 5px;
+        }
+
+        .btn-blue {
+            background-color: #337ab7;
+        }
+
+        .btn-green {
+            background-color: #5cb85c;
+        }
+
+        .btn-red {
+            background-color: #d9534f;
+            margin-top: 15px;
+        }
+        
+    </style>
+    <script src="~/Scripts/script/bt2.js"></script>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-title">Thông tin giao hàng</div>
+        <form id="deliveryForm">
+            <div class="grid-container">
+            
+                <div>
+                    <div class="form-group">
+                        <label>Tên</label>
+                        <input type="text" id="fullname" data-label="Tên">
+                        <div class="error-msg" id="error-fullname"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input type="text" id="phone">
+                        <div class="error-msg" id="error-phone"></div>
+                    </div>
+                </div>
+
+           
+                <div>
+                    <div class="form-group">
+                        <label>Địa chỉ nhận hàng</label>
+                        <input type="text" id="address" data-label="Địa chỉ nhận hàng">
+                        <div class="error-msg" id="error-address"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tỉnh / thành phố</label>
+                        <input type="text" id="province" data-label="Tỉnh / thành phố">
+                        <div class="error-msg" id="error-province"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Quận / Huyện</label>
+                        <input type="text" id="district" data-label="Quận / Huyện">
+                        <div class="error-msg" id="error-district"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phường / Xã</label>
+                        <input type="text" id="ward" data-label="Phường / Xã">
+                        <div class="error-msg" id="error-ward"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Lựa chọn tên cho địa chỉ thường dùng</label>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-blue" onclick="thongBaoDiaChi('Văn phòng')">Văn phòng</button>
+                            <button type="button" class="btn btn-green" onclick="thongBaoDiaChi('Nhà riêng')">Nhà riêng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-red" onclick="xuLyLuu()">Lưu</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

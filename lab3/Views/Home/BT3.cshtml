@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BT3</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .clock-container {
+            background-color: #000000;
+            padding: 40px 80px;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .clock {
+            color: #00d2ff;
+            font-size: 80px;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+    </style>
+    <script src="~/Scripts/script/bt3.js"></script>
+</head>
+<body>
+
+    <div class="clock-container">
+        <div id="digital-clock" class="clock">00:00:00 AM</div>
+    </div>
+
+
+
+</body>
+</html>

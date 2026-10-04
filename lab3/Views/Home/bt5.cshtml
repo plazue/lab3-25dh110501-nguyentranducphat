@@ -1,0 +1,157 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BT5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+    
+        .progress-wrapper {
+            margin-bottom: 25px;
+        }
+
+     
+        .progress-bar-container {
+            width: 100%;
+            height: 30px;
+            background-color: #e0e0e0;
+            border-radius: 15px; 
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            box-sizing: border-box;
+            transition: width 0.1s linear;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+        }
+
+
+        .purple {
+            background-color: #6a1b9a;
+        }
+
+        .teal {
+            background-color: #00695c;
+        }
+
+        .orange {
+            background-color: #ef6c00;
+        }
+
+ 
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .btn-start {
+            background-color: #4caf50;
+        }
+
+            .btn-start:hover {
+                background-color: #45a049;
+            }
+
+        .btn-stop {
+            background-color: #f44336;
+        }
+
+            .btn-stop:hover {
+                background-color: #da190b;
+            }
+
+        .btn-reset {
+            background-color: #2196f3;
+        }
+
+            .btn-reset:hover {
+                background-color: #0b7dda;
+            }
+    </style>
+    <script src="~/Scripts/script/startProgress.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Tiến Trình Đang Chạy </h2>
+
+
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill purple" id="bar1">0%</div>
+            </div>
+        </div>
+
+
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill teal" id="bar2">0%</div>
+            </div>
+        </div>
+
+
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill orange" id="bar3">0%</div>
+            </div>
+        </div>
+        <div class="controls">
+            <button class="btn btn-start" onclick="startProgress()">Chạy tiến trình</button>
+            <button class="btn btn-stop" onclick="stopProgress()">Tạm dừng</button>
+            <button class="btn btn-reset" onclick="resetProgress()">Đặt lại</button>
+        </div>
+    </div>
+</body>
+</html>

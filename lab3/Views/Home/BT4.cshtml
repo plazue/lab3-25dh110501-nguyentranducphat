@@ -1,0 +1,128 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BT4</title>
+    <style>
+
+        body {
+            background-color: #f1f3f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .todo-header {
+            background-color: #333e48;
+        }
+
+        .todo-input {
+            background-color: transparent;
+            color: #ffffff;
+        }
+
+            .todo-input::placeholder {
+                color: #8c98a4;
+            }
+
+        .add-btn {
+            background-color: #1abc9c;
+            transition: background-color 0.2s ease;
+        }
+
+            .add-btn:hover {
+                background-color: #16a085;
+            }
+
+        .task-item {
+            border-bottom: 1px solid #edf2f7;
+            transition: all 0.2s ease;
+        }
+
+            .task-item:last-child {
+                border-bottom: none;
+            }
+
+   
+        .task-text.completed {
+            color: #b0b8c1;
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+        }
+
+
+        .custom-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #cbd5e1;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            display: grid;
+            place-content: center;
+            transition: all 0.2s ease;
+        }
+
+            .custom-checkbox:checked {
+                background-color: #007bff;
+                border-color: #007bff;
+            }
+
+                .custom-checkbox:checked::before {
+                    content: "\f00c";
+                    font-family: "Font Awesome 6 Free";
+                    font-weight: 900;
+                    color: white;
+                    font-size: 11px;
+                }
+    </style>
+    <script src="~/Scripts/script/bt4.js"></script>
+</head>
+
+    <body class="min-h-screen flex items-center justify-center p-4 sm:p-6">
+
+        <div class="w-full max-w-md bg-white rounded-lg shadow-xl overflow-hidden">
+
+            <div class="px-6 pt-6 pb-4">
+                <h1 class="text-2xl font-bold text-gray-800">Bài tập 4: TO-DO LIST</h1>
+                <p class="text-xs text-gray-500 mt-1">Quản lý danh sách công việc hàng ngày</p>
+            </div>
+
+            <div class="todo-header flex items-center px-4 py-3">
+                <input type="text"
+                       id="taskInput"
+                       placeholder="Enter a task"
+                       class="todo-input w-full py-2 px-3 focus:outline-none text-lg font-medium"
+                       onkeypress="handleKeyPress(event)">
+                <button onclick="addTask()"
+                        class="add-btn text-white font-bold h-11 w-11 flex-shrink-0 rounded flex items-center justify-center text-xl ml-2 shadow-sm"
+                        title="Add Task">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="bg-white min-h-[220px]">
+                <ul id="taskList" class="divide-y divide-gray-100">
+                  
+                </ul>
+
+                <div id="emptyState" class="hidden flex-col items-center justify-center py-10 text-gray-400">
+                    <i class="fa-regular fa-clipboard text-4xl mb-2"></i>
+                    <p class="text-sm">Chưa có công việc nào. Hãy thêm công việc mới!</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <span id="taskCounter">0 công việc</span>
+                <button onclick="clearCompleted()" class="hover:text-red-500 transition-colors">
+                    Xóa công việc hoàn thành
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

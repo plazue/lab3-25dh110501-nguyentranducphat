@@ -1,0 +1,184 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phiếu Tham Gia CLB Tin Học LUBU</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="~/Scripts/script/bt1.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+        }
+
+        #registerForm {
+            border: 1px solid #777;
+            padding: 15px 25px 25px 25px;
+            width: 650px;
+            background-color: #fff;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #333;
+            font-size: 20px;
+        }
+
+            .form-title span {
+                color: #00a2ff;
+            }
+
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .form-table td {
+                padding: 6px 4px;
+                border-bottom: 1px solid #eee;
+                font-size: 14px;
+            }
+
+        .label-col {
+            width: 23%;
+            color: #333;
+        }
+
+        .input-col {
+            width: 35%;
+        }
+
+        .error-col {
+            width: 42%;
+            padding-left: 10px !important;
+        }
+
+        input[type="text"], select {
+            width: 90%;
+            padding: 4px;
+            border: 1px solid #a6a6a6;
+            box-sizing: border-box;
+            font-size: 13px;
+        }
+
+        .btn-submit {
+            padding: 3px 12px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #a6a6a6;
+            border-radius: 2px;
+        }
+
+            .btn-submit:hover {
+                background-color: #e0e0e0;
+            }
+
+        .msg-error {
+            color: red;
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        .msg-info {
+            color: red;
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        .txt-result {
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        .msg-status {
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+            .msg-status.error {
+                color: blue;
+            }
+
+            .msg-status.success {
+                color: green;
+            }
+    </style>
+</head>
+<body>
+
+    <form id="registerForm" onsubmit="return validateForm(event)">
+        <h2 class="form-title">PHIẾU THAM GIA CLB TIN HỌC <span>LUBU</span></h2>
+
+        <table class="form-table">
+            <tr>
+                <td class="label-col"><label for="masv">Mã sinh viên :</label></td>
+                <td class="input-col">
+                    <input type="text" id="masv" placeholder="Nhập Mã SV">
+                </td>
+                <td class="error-col"><span id="err-masv" class="msg-error"></span></td>
+            </tr>
+            <tr>
+                <td class="label-col"><label for="hoten">Họ và tên :</label></td>
+                <td class="input-col">
+                    <input type="text" id="hoten" placeholder="Nhập Họ và tên">
+                </td>
+                <td class="error-col"><span id="err-hoten" class="msg-error"></span></td>
+            </tr>
+            <tr>
+                <td class="label-col"><label for="tuoi">Tuổi :</label></td>
+                <td class="input-col">
+                    <input type="text" id="tuoi" placeholder="Nhập tuổi > 18">
+                </td>
+                <td class="error-col"><span id="err-tuoi" class="msg-error"></span></td>
+            </tr>
+            <tr>
+                <td class="label-col"><label>Ngoại ngữ :</label></td>
+                <td class="input-col">
+                    <label><input type="checkbox" name="ngoaingu" value="Anh" onchange="updateNgoaiNgu()"> Anh</label>
+                    <label><input type="checkbox" name="ngoaingu" value="Pháp" onchange="updateNgoaiNgu()"> Pháp</label>
+                    <label><input type="checkbox" name="ngoaingu" value="Nhật" onchange="updateNgoaiNgu()"> Nhật</label>
+                </td>
+                <td class="error-col"><span id="res-ngoaingu" class="msg-info"></span></td>
+            </tr>
+            <tr>
+                <td class="label-col"><label for="chuyennganh">Chuyên ngành :</label></td>
+                <td class="input-col">
+                    <select id="chuyennganh" onchange="updateSotruong()">
+                        <option value="Hệ thống">Hệ thống</option>
+                        <option value="Phần mềm">Phần mềm</option>
+                        <option value="Mạng máy tính">Mạng máy tính</option>
+                    </select>
+                </td>
+                <td class="error-col"></td>
+            </tr>
+            <tr>
+                <td class="label-col"><label>Sở trường :</label></td>
+                <td class="input-col">
+                    <span id="sotruong" class="txt-result">Phân tích & Thiết kế</span>
+                </td>
+                <td class="error-col"></td>
+            </tr>
+            <tr>
+                <td class="label-col"></td>
+                <td class="input-col">
+                    <button type="submit" class="btn-submit">Đăng ký</button>
+                </td>
+                <td class="error-col"><span id="status-msg" class="msg-status"></span></td>
+            </tr>
+        </table>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
